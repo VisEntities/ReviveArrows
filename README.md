@@ -23,11 +23,12 @@ In the chaos of battle, time is precious. You can't afford to waste it typing co
 ## Configuration
 ```json
 {
-  "Version": "2.0.0",
-  "Arrow Button": "USE",
+  "Version": "2.1.0",
+  "Revive Arrow Button": "USE",
   "Instant Heal Amount": 15.0,
   "Heal Amount Over Time": 20.0,
   "Can Revive": true,
+  "Revive Sound Effect": "assets/prefabs/tools/medical syringe/effects/inject_friend.prefab",
   "Consumable Items": [
     {
       "Item Shortname": "syringe.medical",
