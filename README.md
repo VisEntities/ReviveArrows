@@ -16,7 +16,7 @@ In the chaos of battle, time is precious. You can't afford to waste it typing co
 ------
 
 ## Permissions
-* `revivearrow.use` - Enables the use of revive arrows for healing injured players from a safe distance.
+* `revivearrows.use` - Enables the use of revive arrows for healing injured players from a safe distance.
 
 ----------
 
