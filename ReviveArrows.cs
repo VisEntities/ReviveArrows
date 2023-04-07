@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Oxide.Plugins
 {
-    [Info("Revive Arrows", "Dana", "2.0.0")]
+    [Info("Revive Arrows", "Dana", "2.1.0")]
     [Description("Shoot your teammates with love and healing.")]
 
     public class ReviveArrows : RustPlugin
