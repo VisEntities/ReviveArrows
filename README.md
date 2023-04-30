@@ -68,3 +68,4 @@ A portion of the contributions will also be donated to the uMod team as a token 
 
 ## Credits
 * Originally created by **Jake_Rich**, up to version 1.0.0
+* Completely rewritten from scratch and maintained to present by Dana.
