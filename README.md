@@ -1,42 +1,30 @@
-# When your teammate is too far for a syringe!
-In the heat of battle, every second counts. But when your teammate is injured, getting close enough to administer a syringe can mean risking your own life. Luckily, with ReviveArrows, you can heal your fallen allies from a safe distance without risking getting caught in the crossfire! Just aim, shoot, and watch as your teammate rises from the dead, ready to fight another day!
+[Demonstration]()
 
-![](https://i.imgur.com/DbfZmgl.png)
+-----------------------
 
----------
+## How to
 
-## Aim, hold, shoot!
-In the chaos of battle, time is precious. You can't afford to waste it typing commands or fumbling through your inventory searching for a syringe. That's why revive arrows are designed to be as easy to use as regular arrows. You just switch between them, and here's how:
-
-1. Ensure that you have the required materials in your inventory for revive arrows.
-2. Aim with your bow like you normally would.
-3. Before you release the arrow, hold down the revive arrow button and then shoot.
-4. Voila! Your teammate is healed and ready to get back in the fight!
-
-------
+-------------------
 
 ## Permissions
-* `revivearrows.use` - Enables the use of revive arrows for healing injured players from a safe distance.
+- `revivearrows.use` - 
 
-----------
-
+-----------------
 ## Configuration
 ```json
 {
-  "Version": "2.1.0",
-  "Revive Arrow Button": "USE",
-  "Instant Heal Amount": 15.0,
-  "Heal Amount Over Time": 20.0,
-  "Can Revive": true,
-  "Revive Sound Effect": "assets/prefabs/tools/medical syringe/effects/inject_friend.prefab",
-  "Consumable Items": [
+  "Version": "3.0.0",
+  "Instant Health Increase": 15.0,
+  "Health Increase Over Time": 20.0,
+  "Can Revive Wounded": true,
+  "Arrow Ingredients": [
     {
-      "Item Shortname": "syringe.medical",
-      "Amount To Consume": 1
+      "Shortname": "syringe.medical",
+      "Amount": 1
     },
     {
-      "Item Shortname": "rope",
-      "Amount To Consume": 1
+      "Shortname": "rope",
+      "Amount": 1
     }
   ]
 }
@@ -47,25 +35,15 @@ In the chaos of battle, time is precious. You can't afford to waste it typing co
 ## Localization
 ```json
 {
-  "NoPermission": "You lack the necessary permission to use heal arrows.",
-  "Revive.Success": "Your arrow has done its job, the target has been healed!",
-  "Revive.InsufficientConsumable": "Sorry, you cannot use revive arrows without the required materials!"
+  "InsufficientIngredients": "You don't have enough <color=#FABE28>{0}</color>. Required: <color=#FABE28>{1}</color>",
+  "PlayerHealed ": "You healed <color=#FABE28>{0}</color> by <color=#FABE28>{1}</color> health points",
+  "HealArrowUsage ": "Hold down <color=#FABE28>use</color> to heal a friend with an arrow"
 }
 ```
 
 -----------
 
-## Keep the mod alive
-Creating plugins is my passion, and I love nothing more than exploring new ideas and bringing them to the community. But it takes hours of work every day to maintain and improve these plugins that you have come to love and rely on.
-
-With your support on [Patreon](https://www.patreon.com/VisEntities), you're  giving me the freedom to devote more time and energy into what I love, which in turn allows me to continue providing new and exciting updates to the community.
-
-![](https://i.imgur.com/8uhEWPb.png)
-
-A portion of the contributions will also be donated to the uMod team as a token of appreciation for their dedication to coding quality, inspirational ideas, and time spent for the community.
-
-------
 
 ## Credits
-* Originally created by **Jake_Rich**, up to version 1.0.0
-* Completely rewritten from scratch and maintained to present by **Dana**.
+ * Rewritten from scratch and maintained to present by **VisEntities**
+ * Originally created by **redBDGR**, up to version 1.0.1
