@@ -2,7 +2,7 @@ This plugin enables players to shoot arrows that can heal and revive the wounded
 
 Once the player has the required ingredients in their inventory, as specified in the config, they should aim with their bow, hold down the use button, and then release the arrow while still holding the button down.
 
-[Demonstration]()
+[Demonstration](https://www.youtube.com/watch?v=RQqsGL7FUdw)
 
 -----------------------
 
