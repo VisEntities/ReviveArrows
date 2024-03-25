@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace Oxide.Plugins
 {
-    [Info("Revive Arrows", "VisEntities", "3.0.0")]
+    [Info("Revive Arrows", "VisEntities", "3.0.1")]
     [Description("Heal and revive the wounded from a distance.")]
     public class ReviveArrows : RustPlugin
     {
@@ -181,23 +181,23 @@ namespace Oxide.Plugins
             SendGameTip(player, lang.GetMessage(Lang.HealArrowUsage, this, player.UserIDString), 5f);
         }
 
-        private object OnPlayerAttack(BasePlayer player, HitInfo hitInfo)
+        private void OnPlayerAttack(BasePlayer player, HitInfo hitInfo)
         {
-            if (player == null || hitInfo == null)
-                return null;
+            if (player == null || hitInfo == null || hitInfo.HitEntity == null)
+                return;
 
             if (!PermissionUtil.VerifyHasPermission(player))
-                return null;
+                return;
 
             BasePlayer hitPlayer = hitInfo.HitEntity.ToPlayer();
             if (hitPlayer == null || hitPlayer.IsNpc)
-                return null;
+                return;
 
-            if (!hitInfo.Weapon.ShortPrefabName.Contains("bow"))
-                return null;
+            if (hitInfo.Weapon == null || !hitInfo.Weapon.ShortPrefabName.Contains("bow"))
+                return;
 
             if (!player.serverInput.IsDown(BUTTON.USE))
-                return null;
+                return;
 
             foreach (ItemInfo ingredient in _config.ArrowIngredients)
             {
@@ -205,7 +205,7 @@ namespace Oxide.Plugins
                 if (amount < ingredient.Amount)
                 {
                     SendReplyToPlayer(player, Lang.InsufficientIngredients, ingredient.Shortname, ingredient.Amount);
-                    return null;
+                    return;
                 }
             }
 
@@ -214,11 +214,11 @@ namespace Oxide.Plugins
                 ingredient.TakeItem(player, player.inventory.containerMain);
             }
 
+            hitInfo.damageTypes.ScaleAll(0);
             Heal(hitPlayer);
+
             RunEffect(FX_INJECT_FRIEND, hitPlayer, boneId: 698017942);
             SendGameTip(player, lang.GetMessage(Lang.PlayerHealed, this, player.UserIDString), 5f, hitPlayer.displayName, _config.InstantHealthIncrease);
-
-            return true;
         }
 
         #endregion Oxide Hooks
