@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace Oxide.Plugins
 {
-    [Info("Revive Arrows", "VisEntities", "3.0.1")]
+    [Info("Revive Arrows", "VisEntities", "3.0.2")]
     [Description("Heal and revive the wounded from a distance.")]
     public class ReviveArrows : RustPlugin
     {
@@ -175,7 +175,13 @@ namespace Oxide.Plugins
             if (player == null || !PermissionUtil.VerifyHasPermission(player))
                 return;
 
+            if (oldItem == null || newItem == null)
+                return;
+
             if (!newItem.info.shortname.Contains("bow"))
+                return;
+
+            if (!ChanceSucceeded(30))
                 return;
 
             SendGameTip(player, lang.GetMessage(Lang.HealArrowUsage, this, player.UserIDString), 5f);
@@ -239,6 +245,11 @@ namespace Oxide.Plugins
         #endregion Functions
 
         #region Helper Functions
+
+        private static bool ChanceSucceeded(int percentage)
+        {
+            return Random.Range(0, 100) < percentage;
+        }
 
         private void SendGameTip(BasePlayer player, string message, float durationSeconds, params object[] args)
         {
